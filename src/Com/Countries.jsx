@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Country from "./Counrties/Country/Country";
 
+
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [visitedCountries, setVisitedCountries] = useState([]);

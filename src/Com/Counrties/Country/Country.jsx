@@ -36,10 +36,10 @@ const Country = ({ country, handleVisitedCountry, handlevisitedFlags }) => {
       <br />
       {visited ? "I have visited this country." : "I want to visited"}
       <hr />
-      <CountryDetail>
-        country = {country};
-        handleVisitedCountry = {handleVisitedCountry};
-        handlevisitedFlags = {handlevisitedFlags}
+      <CountryDetail 
+       country = {country}
+       handleVisitedCountry = {handleVisitedCountry}
+       handlevisitedFlags = {handlevisitedFlags}>
       </CountryDetail>
     </div>
   );
