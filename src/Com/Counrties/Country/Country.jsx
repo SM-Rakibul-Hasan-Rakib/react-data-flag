@@ -1,26 +1,37 @@
 import { useState } from "react";
 import "../../Countries.css";
 import "./Country.css";
-const Country = ({ country }) => {
+const Country = ({ country, handleVisitedCountry, handlevisitedFlags }) => {
   const { name, flags, population, area, cca3 } = country;
 
   const [visited, setVisited] = useState(false);
 
-  const handleVisited = () =>{
+  const handleVisited = () => {
     setVisited(!visited);
-  }
+  };
 
+  const passWithParams = () => handleVisitedCountry(country);
+  // console.log(handleVisitedCountry);
   return (
-    <div className={`country ${visited ? 'visited': 'non-visited'}`}>
-      <h3 style={{color: visited ? 'purple': 'white'}}>Name : {name.common}</h3>
+    <div className={`country ${visited ? "visited" : "non-visited"}`}>
+      <h3 style={{ color: visited ? "purple" : "white" }}>
+        Name : {name.common}
+      </h3>
       <img src={flags.png} alt="" />
       <p>population : {population}</p>
       <p>area: {area}</p>
       <p>
         <small>code: {cca3}</small>
       </p>
-      <button onClick={handleVisited}>{visited? 'Visited' : 'Going'}</button>
-      {visited ? 'I have visited this country.'  : 'I want to visited'}
+      <button onClick={() => handleVisitedCountry(country)}>
+        Mark visited
+      </button>
+      <br />
+      <button onClick={()=>handlevisitedFlags(country.flags.png)}>Add Flag</button>
+      <br />
+      <button onClick={handleVisited}>{visited ? "Visited" : "Going"}</button>
+      <br />
+      {visited ? "I have visited this country." : "I want to visited"}
     </div>
   );
 };
